@@ -200,3 +200,33 @@ $ lftp -c mget http://swcarpentry.github.io/shell-extras/*.html
 Please refer to the man page by typing `man lftp` in the shell for more information.
 
 {% include links.md %}
+
+> ## 
+>
+> What is the meaning of the -c flag in the following command:
+>
+> ~~~
+> $ wget -c target_URL
+> ~~~
+>{: .bash}
+>
+> Check 'wget --help' or 'man wget'
+>
+> 1. Display the version of Wget.
+> 2. Go to background immediately after startup.
+> 3. Turn off Wget’s output.
+> 4. Turn on verbose output, with all the available data.
+> 5. Continue getting a partially-downloaded file.
+> 6. Turn on time-stamping.
+> 7. Turn on recursive retrieving.
+>
+> > ## Solution
+> > 1. No: -V shows the version
+> > 2. No: -b takes you to background immediately after startup. 
+> > 3. No: -q turns of Wget's output, stands for 'quiet'
+> > 4. No: -v turns on verbose output, with all the available data.
+> > 5. Yes: -c Continue getting a partially-downloaded file. This is useful when you want to finish up a download started by a previous instance of Wget, or by another program.  For instance: wget -c ftp://sunsite.doc.ic.ac.uk/ls-lR.Z. If there is a file named ls-lR.Z in the current directory, Wget will assume that it is the first portion of the remote file, and will ask the server to continue the retrieval from an offset equal to the length of the local file.
+> > 6. No: -N turns on time-stamping
+> > 7. No: -r turns on recursive retrieving
+> {: .solution}
+{: .challenge}
